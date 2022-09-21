@@ -10,10 +10,13 @@
   "license": "ISC",
   "dependencies": {
     "async": "^3.2.3",
+    "audit": "^0.0.6",
     "bluebird": "^3.7.2",
     "chai": "^4.3.6",
     "chai-spies": "^1.0.0",
     "chalk": "^4.1.0",
+    "fix": "^0.0.6",
+    "fox": "^3.0.0-alpha.1",
     "jest": "^27.5.1"
   }
 }

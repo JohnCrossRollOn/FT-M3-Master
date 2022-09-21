@@ -1,5 +1,6 @@
 'use strict';
 
+const ConsoleLogger = require('@11ty/eleventy/src/Util/ConsoleLogger');
 var Promise = require('bluebird'),
     async = require('async'),
     exerciseUtils = require('./utils');
@@ -36,21 +37,27 @@ function problemA () {
    */
 
   // callback version
-  async.each(['poem-two/stanza-01.txt', 'poem-two/stanza-02.txt'],
-    function (filename, eachDone) {
-      readFile(filename, function (err, stanza) {
-        console.log('-- A. callback version --');
-        blue(stanza);
-        eachDone();
-      });
-    },
-    function (err) {
-      console.log('-- A. callback version done --');
-    }
-  );
+  // async.each(['poem-two/stanza-01.txt', 'poem-two/stanza-02.txt'],
+  //   function (filename, eachDone) {
+  //     readFile(filename, function (err, stanza) {
+  //       console.log('-- A. callback version --');
+  //       blue(stanza);
+  //       eachDone();
+  //     });
+  //   },
+  //   function (err) {
+  //     console.log('-- A. callback version done --');
+  //   }
+  // );
 
   // promise version
-  // ???
+  Promise.all([
+   promisifiedReadFile("poem-two/stanza-01.txt"), 
+   promisifiedReadFile("poem-two/stanza-02.txt")
+  ]).then(stanzas=>{
+    stanzas.forEach((stanza)=>blue(stanza));
+    console.log("done")
+  })
 
 }
 
