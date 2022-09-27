@@ -1,0 +1,17 @@
+body {
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
+img, p {
+    margin: 2rem;
+    padding: 1rem;
+    width: fit-content;
+    height: fit-content;
+    border: 5px solid black;
+}
+img {
+    padding: 0;
+    width:50%;
+    height: 80%;
+}
